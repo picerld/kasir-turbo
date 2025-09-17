@@ -1,5 +1,4 @@
-import Navbar from "@/components/layout/Navbar";
-import { Button } from "@/components/ui/button";
+import Navbar from "@/components/layouts/Navbar";
 import Hero from "./landing/__components/Hero";
 
 async function getMessage() {
@@ -17,14 +16,15 @@ export default async function Home() {
   return (
     <>
       <Navbar />
-      {/* <div className="flex flex-col h-screen justify-center items-center space-y-5">
+      <Hero />
+      <Hero />
+      {/* <Hero />
+      <div className="flex flex-col h-screen justify-center items-center space-y-5">
         <h1 className="text-4xl font-bold">{data.message}</h1>
         <p className="text-2xl">
           Fresh setup NEXT JS and NEST JS with Turborepo
         </p>
-        <Button size={"lg"}>Holla Mundo!</Button>
       </div> */}
-      <Hero />
     </>
   );
 }
