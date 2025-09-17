@@ -1,0 +1,88 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider          = "postgresql"
+  url               = env("DATABASE_URL")
+}
+
+model TransportType {
+  id          Int     @id @default(autoincrement())
+  name        String  @unique
+  description String?
+
+  routes Route[]
+}
+
+model Operator {
+  id          Int     @id @default(autoincrement())
+  name        String  @unique
+  contactInfo String?
+
+  routes Route[]
+}
+
+model Route {
+  id              Int     @id @default(autoincrement())
+  name            String
+  code            String  @unique
+  description     String?
+  transportTypeId Int
+  operatorId      Int?
+
+  transportType TransportType @relation(fields: [transportTypeId], references: [id])
+  operator      Operator?     @relation(fields: [operatorId], references: [id])
+  stops         StopRoute[]
+  schedules     Schedule[]
+
+  @@index([transportTypeId])
+  @@index([operatorId])
+}
+
+model Stop {
+  id        Int    @id @default(autoincrement())
+  name      String
+  latitude  Float
+  longitude Float
+  type      String
+
+  routes StopRoute[]
+
+  @@index([name])
+  @@index([type])
+}
+
+model StopRoute {
+  id        Int @id @default(autoincrement())
+  routeId   Int
+  stopId    Int
+  stopOrder Int
+
+  route Route @relation(fields: [routeId], references: [id])
+  stop  Stop  @relation(fields: [stopId], references: [id])
+
+  @@unique([routeId, stopId])
+  @@index([routeId])
+  @@index([stopId])
+}
+
+model Schedule {
+  id            Int    @id @default(autoincrement())
+  routeId       Int
+  departureTime String
+  arrivalTime   String
+  dayOfWeek     String
+
+  route Route @relation(fields: [routeId], references: [id])
+
+  @@index([routeId])
+  @@index([dayOfWeek])
+}

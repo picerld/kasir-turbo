@@ -17,14 +17,6 @@ export default async function Home() {
     <>
       <Navbar />
       <Hero />
-      <Hero />
-      {/* <Hero />
-      <div className="flex flex-col h-screen justify-center items-center space-y-5">
-        <h1 className="text-4xl font-bold">{data.message}</h1>
-        <p className="text-2xl">
-          Fresh setup NEXT JS and NEST JS with Turborepo
-        </p>
-      </div> */}
     </>
   );
 }
