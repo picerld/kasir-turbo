@@ -1,22 +1,10 @@
-import Navbar from "@/components/layouts/Navbar";
 import Hero from "./landing/__components/Hero";
+import GuestLayout from "@/components/layout/GuestLayout";
 
-async function getMessage() {
-  const baseUrl = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:3000";
-  const res = await fetch(`${baseUrl}/api/hello`, { cache: "no-store" });
-
-  if (!res.ok) throw new Error("Failed to fetch data");
-
-  return res.json();
-}
-
-export default async function Home() {
-  const data = await getMessage();
-
+export default async function LandingPage() {
   return (
-    <>
-      <Navbar />
+    <GuestLayout>
       <Hero />
-    </>
+    </GuestLayout>
   );
 }
