@@ -28,7 +28,8 @@ export default function Hero() {
   ];
   return (
     <div className="relative mx-auto flex max-w-7xl flex-col items-center justify-center pt-16 pb-24">
-      <div className="absolute inset-0 bg-gradient-to-b dark:bg-gradient-to-r from-primary/20 dark:from-primary/5 to-accent/10 rounded-3xl blur-3xl"></div>
+      <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-accent/10 rounded-3xl blur-3xl"></div>
+      {/* <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-green/20 to-orange/10 rounded-3xl blur-3xl"></div> */}
 
       <div className="relative z-10 flex flex-col items-center px-4 pt-32">
         <motion.div
