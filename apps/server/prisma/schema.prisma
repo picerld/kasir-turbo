@@ -110,5 +110,5 @@ model ScheduleStop {
 
   @@index([scheduleId])
   @@index([arrivalTime])
-  @@index([departureTime])
+  @@index([departureTime]) 
 }
