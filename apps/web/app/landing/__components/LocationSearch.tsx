@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { MapPin, Search } from "lucide-react";
+import { toast } from "sonner";
 
 export const LocationSearch = () => {
   return (
@@ -32,6 +33,12 @@ export const LocationSearch = () => {
 
         <Button
           size="lg"
+          onClick={() => {
+            toast.info("Oops! Tunggu di situ!", {
+              closeButton: true,
+              description: "Fitur ini masih dalam tahap pengembangan.",
+            });
+          }}
           className="w-full h-14 text-lg font-semibold bg-primary hover:bg-primary/90 text-white transition-all duration-300 transform hover:scale-[1.02] shadow-lg"
         >
           <Search className="w-5 h-5 mr-2" />
