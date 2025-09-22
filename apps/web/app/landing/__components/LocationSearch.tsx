@@ -89,9 +89,7 @@ export const LocationSearch = () => {
             </button>
 
             <div className="flex flex-col items-center my-10 gap-2">
-              <h2 className="text-3xl font-bold">
-                Rute Terbaik Untuk Kamu!
-              </h2>
+              <h2 className="text-3xl font-bold">Rute Terbaik Untuk Kamu!</h2>
               <p className="font-normal">
                 🚍 Dari <span className="font-semibold">{fromLocation}</span> ke{" "}
                 <span className="font-semibold">{toLocation}</span>
@@ -175,7 +173,6 @@ export const LocationSearch = () => {
             </motion.div>
 
             <div className="mt-6 space-y-4">
-              {/* Bus Route Option */}
               <motion.div
                 whileHover={{
                   scale: 1.02,
@@ -318,15 +315,15 @@ export const LocationSearch = () => {
                   transition: { duration: 0.2, ease: "easeOut" },
                 }}
                 whileTap={{ scale: 0.98 }}
-                className="relative p-5 bg-gradient-to-r from-purple-50 to-purple-100/50 dark:from-purple-950/20 dark:to-purple-900/20 rounded-xl border border-purple-200/60 dark:border-purple-800/40 cursor-pointer hover:border-purple-300 dark:hover:border-purple-600 hover:shadow-md transition-all duration-300 group overflow-hidden"
+                className="relative p-5 bg-gradient-to-r from-orange-50 to-yellow-100/50 dark:from-orange-950/20 dark:to-yellow-900/20 rounded-xl border border-orange-200/60 dark:border-orange-800/40 cursor-pointer hover:border-orange-300 dark:hover:border-orange-600 hover:shadow-md transition-all duration-300 group overflow-hidden"
               >
                 {/* Left accent bar */}
-                <div className="absolute left-0 top-0 w-1 h-full bg-gradient-to-b from-purple-500 to-purple-600"></div>
+                <div className="absolute left-0 top-0 w-1 h-full bg-gradient-to-b from-orange-500 to-yellow-500"></div>
 
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-4">
                     {/* Icon container */}
-                    <div className="flex items-center justify-center w-12 h-12 bg-purple-100 dark:bg-purple-900/40 rounded-full group-hover:scale-110 transition-transform duration-200">
+                    <div className="flex items-center justify-center w-12 h-12 bg-orange-100 dark:bg-orange-900/40 rounded-full group-hover:scale-110 transition-transform duration-200">
                       <span className="text-2xl">🛺</span>
                     </div>
 
@@ -357,7 +354,7 @@ export const LocationSearch = () => {
                       Terbatas
                     </Badge>
                     <svg
-                      className="w-5 h-5 text-purple-500 opacity-60 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-200"
+                      className="w-5 h-5 text-orange-500 opacity-60 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-200"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
