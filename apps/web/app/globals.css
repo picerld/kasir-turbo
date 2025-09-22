@@ -49,7 +49,7 @@
 }
 
 :root {
-  --green: oklch(0.55 0.30 130);
+  --green: #00b090;
   --green-foreground: oklch(0.99 0.01 130);
   --orange: oklch(0.75 0.30 45);
   --orange-foreground: oklch(0.99 0.01 45);

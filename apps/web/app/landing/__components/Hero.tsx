@@ -3,7 +3,6 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Bus, Car, Train } from "lucide-react";
 import { motion } from "motion/react";
-import { LocationSearch } from "./LocationSearch";
 import { useState, useEffect } from "react";
 
 export default function Hero() {
@@ -25,7 +24,6 @@ export default function Hero() {
     },
   ];
 
-  // Auto cycle animation
   useEffect(() => {
     const interval = setInterval(() => {
       setSelectedService((prev) => {
@@ -39,7 +37,7 @@ export default function Hero() {
   }, [services]);
 
   return (
-    <div className="relative mx-auto flex max-w-7xl flex-col items-center justify-center pt-16 pb-24">
+    <div className="relative mx-auto flex max-w-7xl flex-col items-center justify-center pt-16">
       <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-accent/10 rounded-3xl blur-3xl"></div>
 
       <div className="relative z-10 flex flex-col items-center px-4 pt-32">
@@ -99,16 +97,6 @@ export default function Hero() {
               </div>
             );
           })}
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.8 }}
-          whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
-          className="w-full max-w-5xl"
-        >
-          <LocationSearch />
         </motion.div>
       </div>
     </div>

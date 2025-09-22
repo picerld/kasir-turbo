@@ -2,7 +2,7 @@ import Hero from "./landing/__components/Hero";
 import GuestLayout from "@/components/layout/GuestLayout";
 import { createMetadata } from "@/lib/metadata";
 import type { Metadata } from "next";
-
+import LocationSearch from "./landing/__components/LocationSearch";
 export const metadata: Metadata = createMetadata({
   title: "Yuk travelling",
   metaDescription: "Connect Bandung landing page",
@@ -13,6 +13,7 @@ export default async function LandingPage() {
   return (
     <GuestLayout>
       <Hero />
+      <LocationSearch />
     </GuestLayout>
   );
 }
