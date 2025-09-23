@@ -23,9 +23,21 @@ export const LocationSearch = () => {
     <div className="w-full flex flex-col">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.8 }}
-        whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
+        animate={{
+          opacity: 1,
+          y: 0,
+          scale: [1, 1.02, 1],
+        }}
+        transition={{
+          duration: 4,
+          repeat: Infinity,
+          repeatType: "loop",
+          ease: "easeInOut",
+        }}
+        whileHover={{
+          scale: 1.05,
+          transition: { duration: 0.3 },
+        }}
         className="w-full max-w-7xl mx-auto"
       >
         <div className="space-y-6 w-full max-w-6xl mx-auto">

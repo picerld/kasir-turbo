@@ -88,9 +88,9 @@ model StopRoute {
 model Schedule {
   id            String   @id @default(uuid())
   routeId       String   @db.Uuid
-  departureTime DateTime
-  arrivalTime   DateTime
-  dayOfWeek     DateTime
+  departureTime DateTime @db.Time()
+  arrivalTime   DateTime @db.Time()
+  dayOfWeek     String
   createdAt     DateTime @default(now())
   updatedAt     DateTime @default(now())
 
@@ -110,5 +110,5 @@ model ScheduleStop {
 
   @@index([scheduleId])
   @@index([arrivalTime])
-  @@index([departureTime]) 
+  @@index([departureTime])
 }
