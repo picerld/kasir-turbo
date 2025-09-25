@@ -6,13 +6,11 @@
 
 generator client {
   provider = "prisma-client-js"
-  output   = "../generated/prisma"
 }
 
 datasource db {
   provider          = "postgresql"
   url               = env("DATABASE_URL")
-  shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
 }
 
 model TransportType {
@@ -38,7 +36,7 @@ model Operator {
 model Route {
   id              String   @id @default(uuid()) @db.Uuid
   name            String
-  code            String   @unique
+  code            String
   description     String?
   transportTypeId String   @db.Uuid
   operatorId      String?  @db.Uuid
@@ -63,7 +61,8 @@ model Stop {
   createdAt DateTime @default(now())
   updatedAt DateTime @default(now())
 
-  routes StopRoute[]
+  routes       StopRoute[]
+  ScheduleStop ScheduleStop[]
 
   @@index([name])
   @@index([type])
@@ -86,27 +85,31 @@ model StopRoute {
 }
 
 model Schedule {
-  id            String   @id @default(uuid())
-  routeId       String   @db.Uuid
-  departureTime DateTime @db.Time()
-  arrivalTime   DateTime @db.Time()
-  dayOfWeek     String
-  createdAt     DateTime @default(now())
-  updatedAt     DateTime @default(now())
+  id        String   @id @default(uuid())
+  routeId   String   @db.Uuid
+  startTime DateTime @db.Time()
+  endTime   DateTime @db.Time()
+  code      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
 
   route Route @relation(fields: [routeId], references: [id])
 
   @@index([routeId])
-  @@index([dayOfWeek])
+  @@index([code])
 }
 
 model ScheduleStop {
   id            String   @id @default(uuid())
   scheduleId    String   @db.Uuid
+  stopOrder     Int
   arrivalTime   DateTime @db.Time()
   departureTime DateTime @db.Time()
   createdAt     DateTime @default(now())
   updatedAt     DateTime @default(now())
+  stopId        String   @db.Uuid
+
+  stop Stop @relation(fields: [stopId], references: [id])
 
   @@index([scheduleId])
   @@index([arrivalTime])
